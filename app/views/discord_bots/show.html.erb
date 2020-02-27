@@ -1,0 +1,21 @@
+<h1>More information about <%= @discord_bot.song_name %> by <%= @discord_bot.artist %> </h1>
+
+<p>
+  <%= button_to "Go back to see all the discord music bots", discord_bots_path, method: :get %>
+</p>
+
+<p>
+  <%= button_to "Edit this discord music bot", edit_discord_bot_path, method: :get %>
+</p>
+
+<p>
+  <%= button_to "Destroy this discord music bot", discord_bot_path, method: :delete %>
+</p>
+
+<p>
+  Song name: <%= @discord_bot.song_name %>
+</p>
+
+<p>
+  Artist: <%= @discord_bot.artist %>
+</p>

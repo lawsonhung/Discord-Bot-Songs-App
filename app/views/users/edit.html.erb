@@ -1,0 +1,16 @@
+<h1>Edit the user here</h1>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :online %>
+  <%= f.check_box :online %>
+
+  <%= f.submit %>
+
+<% end %>

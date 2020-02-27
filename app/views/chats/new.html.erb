@@ -1,0 +1,16 @@
+<h1>Make a new Chat</h1>
+
+<%= form_for @chat do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :discord_bot_id %>
+  <%= f.collection_select :discord_bot_id, @discord_bots, :id, :song_name %>
+
+  <%= f.label :user_id %>
+  <%= f.collection_select :user_id, @users, :id, :name %>
+
+  <%= f.submit %>
+
+<% end %>

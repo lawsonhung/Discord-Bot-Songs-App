@@ -1,0 +1,9 @@
+<h1>All of Ricky's Discord Song Bots Here</h1>
+
+<%= button_to "Create a new Discord Song Bot here", new_discord_bot_path, method: :get %>
+
+<% @discord_bots.each do |bot| %>
+  <p>
+    <%= button_to "#{bot.song_name} by #{bot.artist}", discord_bot_path(bot), method: :get %>
+  </p>
+<% end %>

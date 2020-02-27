@@ -1,0 +1,53 @@
+<h1>More information about <%= @user.username %> (Who's actually <%= @user.name %> IRL ) </h1>
+
+<p>
+<%= button_to "Go back to see all the users", users_path, method: :get %>
+</p>
+<p>
+<%= button_to "Edit this user", edit_user_path, method: :get %>
+</p>
+<p>
+<%= button_to "Delete this user", user_path(@user), method: :delete %>
+</p>
+
+<p>
+  Name: <%= @user.name %>
+</p>
+
+<p>
+  Username: <%= @user.username %>
+</p>
+
+<p>
+  Online: <%= @user.online %>
+</p>
+
+<br>
+
+<h1>Make a new chat here</h1>
+
+<%= form_for @chat do |f| %>
+
+  <%= f.hidden_field :user_id, value: @user.id %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+
+  <%= f.label :discord_bot_id %>
+  <%= f.collection_select :discord_bot_id, @discord_bots, :id, :song_and_artist %>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>
+
+<h1>All the chats associated with this user</h1>
+
+<% @user.chats.each do |chat| %>
+
+  <p>
+    <%= "#{chat.name}: #{@user.username} is listening to #{chat.discord_bot.song_name} by #{chat.discord_bot.artist}" %>
+  </p>
+
+<% end %>

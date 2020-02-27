@@ -1,0 +1,9 @@
+<h1>All Users</h1>
+
+<%= button_to "Create a new user", new_user_path, method: :get %>
+
+<% @users.each do |user| %>
+  <p>
+    <%= button_to user.username, user_path(user), method: :get %>
+  </p>
+<% end %>
